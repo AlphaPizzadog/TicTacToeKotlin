@@ -25,14 +25,19 @@ android {
 	kotlinOptions {
 		jvmTarget = "17"
 	}
+	buildFeatures{
+		buildConfig = true
+	}
 	buildTypes {
 		debug {
 			minifyEnabled = false
 			shrinkResources = false
+			buildConfigField 'String', "MapboxAccessToken", MAPBOX_ACCESS_TOKEN
 		}
 		release {
 			minifyEnabled = true
 			shrinkResources = true
+			buildConfigField 'String', "MapboxAccessToken", MAPBOX_ACCESS_TOKEN
 		}
 	}
 	sourceSets {
@@ -99,7 +104,7 @@ dependencies {
 
 	// Mapbox dependencies for maps
 	implementation("com.mapbox.maps:android:$rootProject.mapbox_sdk_version")
-	implementation("com.mapbox.search:mapbox-search-android-ui:$rootProject.mapbox_search_version")
+	implementation("com.mapbox.search:mapbox-search-android-ui:$mapbox_search_version")
 
 	implementation("com.jakewharton.timber:timber:$rootProject.timber_version")
 	debugImplementation("com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary_version")

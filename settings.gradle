@@ -13,6 +13,16 @@ dependencyResolutionManagement {
 		mavenCentral()
 		maven {
 			url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
+			authentication {
+				basic(BasicAuthentication)
+			}
+			credentials {
+				// Do not change the username below.
+				// This should always be `mapbox` (not your username).
+				username = 'mapbox'
+				// Use the secret token you stored in gradle.properties as the password
+				password = "sk.eyJ1IjoiZmFzb3JvLTIiLCJhIjoiY21hbGg3OWN0MDlibTJrcTF3eDM3MjExcCJ9.GPA4AI_NoYoNR5ysO3oISA"
+			}
 		}
 	}
 }
